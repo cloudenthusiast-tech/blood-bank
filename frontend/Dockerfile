@@ -9,5 +9,5 @@ RUN npm run build
 # Stage 2: Serve with Nginx
 FROM nginx:alpine
 WORKDIR /opt/server
-COPY --from=build /opt/server/build /usr/share/nginx/html
+COPY --from=build /opt/server/dist /usr/share/nginx/html
 CMD ["nginx", "-g", "daemon off;"]
