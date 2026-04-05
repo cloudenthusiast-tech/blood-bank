@@ -10,4 +10,5 @@ RUN npm run build
 FROM nginx:alpine
 WORKDIR /opt/server
 COPY --from=build /opt/server/dist /usr/share/nginx/html
+COPY default.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
